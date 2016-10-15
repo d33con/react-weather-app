@@ -1,0 +1,153 @@
+
+@font-face {
+    font-family: 'weather';
+    src: url('../public/assets/icons/artill_clean_icons-webfont.eot');
+    src: url('../public/assets/icons/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../public/assets/icons/artill_clean_icons-webfont.woff') format('woff'),
+         url('../public/assets/icons/artill_clean_icons-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  background: rgba(8,188,53,1);
+  background: -moz-linear-gradient(-45deg, rgba(8,188,53,1) 0%, rgba(205,220,57,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(8,188,53,1)), color-stop(100%, rgba(205,220,57,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(8,188,53,1) 0%, rgba(205,220,57,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(8,188,53,1) 0%, rgba(205,220,57,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(8,188,53,1) 0%, rgba(205,220,57,1) 100%);
+  background: linear-gradient(135deg, rgba(8,188,53,1) 0%, rgba(205,220,57,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#08bc35', endColorstr='#cddc39', GradientType=1 );
+  margin: 0;
+  padding: 20px 0;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.preloader-wrapper {
+  position: absolute;
+  top: 25%;
+  left: 48%;
+}
+
+.card {
+  text-align: center;
+}
+
+.weather-container {
+  border-radius: 5px;
+  margin: 40px 60px;
+  padding: 40px;
+}
+
+.weather-temp {
+  font-size: 62px;
+}
+
+.temp-symbol {
+  font-size: 32px;
+  padding: 5px;
+}
+
+.weather-temp > .divider {
+  margin: 20px auto;
+  width: 50%;
+  height: 3px;
+}
+
+.weather-text {
+  margin: 0 auto;
+  font-size: 28px;
+  text-align: center;
+}
+
+.weather-condition {
+  max-height: 125px;
+}
+
+i.weather {
+  font-family: weather;
+  font-size: 150px;
+  font-style: normal !important;
+  margin: 0 auto !important;
+}
+
+@media (min-width: 0px) and (max-width: 640px) and (orientation: portrait) {
+  .weather-container {
+    padding: 10px;
+    margin: 40px 30px;
+  }
+
+  i.weather {
+    font-size: 80px;
+  }
+
+  .weather-text {
+    font-size: 18px;
+  }
+}
+
+.card-action {
+  margin: 35px auto;
+  width: 50%;
+}
+
+table {
+  height: 85%;
+  font-size: 24px;
+}
+
+i.weather-small {
+  font-family: weather;
+  font-size: 50px;
+  font-style: normal !important;
+}
+
+.icon-0:before { content: ":"; }
+.icon-1:before { content: "p"; }
+.icon-2:before { content: "S"; }
+.icon-3:before { content: "Q"; }
+.icon-4:before { content: "S"; }
+.icon-5:before { content: "W"; }
+.icon-6:before { content: "W"; }
+.icon-7:before { content: "W"; }
+.icon-8:before { content: "W"; }
+.icon-9:before { content: "I"; }
+.icon-10:before { content: "W"; }
+.icon-11:before { content: "I"; }
+.icon-12:before { content: "I"; }
+.icon-13:before { content: "I"; }
+.icon-14:before { content: "I"; }
+.icon-15:before { content: "W"; }
+.icon-16:before { content: "I"; }
+.icon-17:before { content: "W"; }
+.icon-18:before { content: "U"; }
+.icon-19:before { content: "Z"; }
+.icon-20:before { content: "Z"; }
+.icon-21:before { content: "Z"; }
+.icon-22:before { content: "Z"; }
+.icon-23:before { content: "Z"; }
+.icon-24:before { content: "E"; }
+.icon-25:before { content: "E"; }
+.icon-26:before { content: "3"; }
+.icon-27:before { content: "a"; }
+.icon-28:before { content: "A"; }
+.icon-29:before { content: "a"; }
+.icon-30:before { content: "A"; }
+.icon-31:before { content: "6"; }
+.icon-32:before { content: "1"; }
+.icon-33:before { content: "6"; }
+.icon-34:before { content: "1"; }
+.icon-35:before { content: "W"; }
+.icon-36:before { content: "1"; }
+.icon-37:before { content: "S"; }
+.icon-38:before { content: "S"; }
+.icon-39:before { content: "S"; }
+.icon-40:before { content: "M"; }
+.icon-41:before { content: "W"; }
+.icon-42:before { content: "I"; }
+.icon-43:before { content: "W"; }
+.icon-44:before { content: "a"; }
+.icon-45:before { content: "S"; }
+.icon-46:before { content: "U"; }
+.icon-47:before { content: "S"; }
