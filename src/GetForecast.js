@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 import CurrentWeather from './CurrentWeather';
+import SpinnerLoader from './SpinnerLoader';
 
 class GetForecast extends Component {
   constructor(props) {
@@ -66,17 +68,24 @@ class GetForecast extends Component {
   }
 
   render() {
+    const hasLoaded = this.state.loaded;
     return (
       <div>
-        <CurrentWeather {...this.state} />
+        {(hasLoaded) ? <CurrentWeather {...this.state} /> : <SpinnerLoader />}
       </div>
     );
   }
 }
 
+// Prop Types
 GetForecast.defaultProps = {
   initialLat: 52.636878,
   initialLong: -1.139759
+};
+
+GetForecast.propTypes = {
+  initialLat: PropTypes.number.isRequired,
+  initialLong: PropTypes.number.isRequired
 };
 
 export default GetForecast;
