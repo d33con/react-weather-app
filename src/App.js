@@ -1,7 +1,7 @@
 import React from 'react';
 import GetForecast from './GetForecast';
 
-const App = () => {
+function App () {
   return (
     <div>
       <GetForecast/>
