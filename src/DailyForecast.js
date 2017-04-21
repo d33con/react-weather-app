@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const DailyForecast = ({day}, key) => {
+function DailyForecast({ dailyForecast }) {
   return (
     <tr>
-      <td>{day.day}</td>
-      <td><i className={'weather-small icon-' + day.code}></i></td>
-      <td>{day.high + ' / ' + day.low}</td>
+      <td>{dailyForecast.day}</td>
+      <td><i className={'weather-small icon-' + dailyForecast.code}></i></td>
+      <td>{dailyForecast.high + ' / ' + dailyForecast.low}</td>
     </tr>
   );
+};
+
+DailyForecast.propTypes = {
+  dailyForecast: PropTypes.object.isRequired
 };
 
 export default DailyForecast;
