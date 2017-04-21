@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DailyForecast from './DailyForecast';
 
-const Forecast = (props) => {
+function Forecast(props) {
   const days = [];
   for (var i = 0; i < 5; i++) {
     days.push(props.forecast[i]);
@@ -10,11 +11,15 @@ const Forecast = (props) => {
     <table className='centered bordered indigo-text text-darken-2"'>
       <tbody>
         {days.map(day =>
-          <DailyForecast day={day} key={day.date} />
+          <DailyForecast dailyForecast={day} key={day.date} />
         )}
       </tbody>
     </table>
   );
+}
+
+Forecast.propTypes = {
+  forecast: PropTypes.array.isRequired
 };
 
 export default Forecast;
