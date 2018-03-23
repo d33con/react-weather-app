@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import $ from 'jquery';
-import CurrentWeather from './CurrentWeather';
-import SpinnerLoader from './SpinnerLoader';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import CurrentWeather from "./CurrentWeather";
+import SpinnerLoader from "./SpinnerLoader";
 
 class GetForecast extends Component {
   constructor(props) {
@@ -23,28 +23,31 @@ class GetForecast extends Component {
   }
 
   _retrieveWeather() {
-    $.ajax({
-      url: 'https://simple-weather.p.mashape.com/weatherdata?lat=' + this.state.lat + '&lng=' + this.state.long,
-      dataType: 'json',
-      cache: false,
-      success: function(response) {
+    axios
+      .get("https://simple-weather.p.mashape.com/weatherdata", {
+        params: {
+          lat: this.state.lat,
+          lng: this.state.long,
+          cache: false,
+          dataType: "json"
+        },
+        headers: {
+          "X-Mashape-Authorization":
+            "GyLBaydS0xmshFix6lsYHaycbjEvp1pcBn1jsnf6pEp8sdErUk"
+        }
+      })
+      .then(response => {
         this.setState({
-          temp: response.query.results.channel.item.condition.temp,
-          text: response.query.results.channel.item.condition.text,
-          code: response.query.results.channel.item.condition.code,
-          location: response.query.results.channel.location.city,
-          forecast: response.query.results.channel.item.forecast,
+          temp: response.data.query.results.channel.item.condition.temp,
+          text: response.data.query.results.channel.item.condition.text,
+          code: response.data.query.results.channel.item.condition.code,
+          location: response.data.query.results.channel.location.city,
+          forecast: response.data.query.results.channel.item.forecast,
           loaded: true
         });
-        //console.log(response.query.results.channel.item);
-      }.bind(this),
-      error: function(err) {
-        console.log(err);
-      },
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader("X-Mashape-Authorization", "GyLBaydS0xmshFix6lsYHaycbjEvp1pcBn1jsnf6pEp8sdErUk");
-      }
-    });
+        console.log(response.data);
+      })
+      .catch(err => console.log(err));
   }
 
   _handleGeoPosition(coords) {
@@ -59,7 +62,9 @@ class GetForecast extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this._handleGeoPosition);
     } else {
-      alert("Geolocation failed. Please use https or enable location in your browser");
+      alert(
+        "Geolocation failed. Please use https or enable location in your browser"
+      );
     }
   }
 
@@ -71,7 +76,7 @@ class GetForecast extends Component {
     const hasLoaded = this.state.loaded;
     return (
       <div>
-        {(hasLoaded) ? <CurrentWeather {...this.state} /> : <SpinnerLoader />}
+        {hasLoaded ? <CurrentWeather {...this.state} /> : <SpinnerLoader />}
       </div>
     );
   }
